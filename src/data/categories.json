@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "id": "tech",
+      "name": "Technology",
+      "description": "Articles about programming and technology"
+    },
+    {
+      "id": "lifestyle",
+      "name": "Lifestyle",
+      "description": "Personal experiences and lifestyle topics"
+    }
+  ]
+}

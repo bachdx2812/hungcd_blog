@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.vue';
+import blogs from '../../data/blogs.json';
+import categories from '../../data/categories.json';
+---
+
+<Layout title="Blog Posts - Your Name">
+  <Header client:load />
+  <main class="container mx-auto px-4 pt-24">
+    <div class="py-8">
+      <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+        Blog Posts
+      </h1>
+
+      <!-- Categories -->
+      <div class="flex gap-4 mb-8 overflow-x-auto pb-4">
+        {categories.categories.map((category) => (
+          <button class="px-4 py-2 rounded-full bg-dark-card hover:bg-primary/20 transition-colors">
+            {category.name}
+          </button>
+        ))}
+      </div>
+
+      <!-- Blog List -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {blogs.blogs.map((blog) => (
+          <a href={`/blogs/${blog.slug}`} class="block">
+            <article class="bg-dark-card rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+              <div class="p-6">
+                <span class="text-sm text-primary">{blog.category}</span>
+                <h2 class="text-xl font-semibold mt-2 mb-3">{blog.title}</h2>
+                <p class="text-dark-text/80 text-sm mb-4">{blog.excerpt}</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-dark-text/60">{blog.date}</span>
+                  <span class="text-primary">Read more →</span>
+                </div>
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

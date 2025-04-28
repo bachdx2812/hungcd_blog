@@ -1,16 +1,25 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.vue';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Your Name - Personal Blog">
+  <Header client:load />
+  <main class="container mx-auto px-4 pt-24">
+    <div class="min-h-screen flex flex-col items-center justify-center text-center">
+      <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+        Welcome to My Blog
+      </h1>
+      <p class="text-xl max-w-2xl mb-8">
+        Hi, I'm [Your Name]. I'm a [Your Role] passionate about [Your Interests].
+        This is my personal space where I share my thoughts and experiences.
+      </p>
+      <a
+        href="/blogs"
+        class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-colors"
+      >
+        Read My Blog
+      </a>
+    </div>
+  </main>
+</Layout>
