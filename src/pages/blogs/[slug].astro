@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.vue';
 import blogs from '../../data/blogs.json';
+import MarkdownIt from 'markdown-it';
+
+const md = new MarkdownIt();
 
 export function getStaticPaths() {
   return blogs.blogs.map((blog) => ({
@@ -11,6 +14,7 @@ export function getStaticPaths() {
 }
 
 const { blog } = Astro.props;
+const renderedContent = md.render(blog.content);
 ---
 
 <Layout title={`${blog.title} - Your Name`}>
@@ -34,9 +38,7 @@ const { blog } = Astro.props;
         </h1>
       </header>
 
-      <div class="prose prose-invert prose-lg max-w-none">
-        {blog.content}
-      </div>
+      <div class="prose prose-invert prose-lg max-w-none" set:html={renderedContent}></div>
 
       <footer class="mt-12 pt-8 border-t border-dark-text/20">
         <div class="flex justify-between items-center">
@@ -48,3 +50,35 @@ const { blog } = Astro.props;
     </article>
   </main>
 </Layout>
+
+<style>
+  .prose {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+  }
+
+  .prose h1 {
+    font-size: 3rem;
+    color: #00aaff;
+  }
+
+  .prose h2 {
+    font-size: 2.5rem;
+    color: #0088cc;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose a {
+    color: #00aaff;
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    color: #0088cc;
+  }
+</style>
