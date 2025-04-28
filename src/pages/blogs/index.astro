@@ -1,13 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.vue';
-import BlogListing from '../../components/BlogListing.vue';
+import { getCollection } from 'astro:content';
+import CategoriesSidebar from '../../components/CategoriesSidebar.astro';
+import PostCard from '../../components/PostCard.astro'; // Add this import
+
+const posts = await getCollection('blogs');
 ---
 
 <Layout title="Blog Posts - Cao Duy Hung">
   <Header client:load />
   <main class="container mx-auto px-4 pt-12 pb-24">
-    <BlogListing client:load />
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <CategoriesSidebar posts={posts} currentCategory={null} />
+
+      <div class="md:col-span-3">
+        <div class="grid grid-cols-1 gap-6">
+          {posts.map(post => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>
 

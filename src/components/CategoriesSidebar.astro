@@ -1,0 +1,40 @@
+---
+const { posts, currentCategory } = Astro.props;
+
+const categoryMap = new Map();
+posts.forEach((post: { data: { category: string } }) => {
+  const original = post.data.category;
+  const normalized = original.toLowerCase();
+  if (!categoryMap.has(normalized)) {
+    categoryMap.set(normalized, { original, count: 0 });
+  }
+  categoryMap.get(normalized).count++;
+});
+
+const categories = Array.from(categoryMap.values());
+---
+
+<aside class="md:col-span-1">
+  <div class="sticky top-24 p-6 bg-dark-card/50 rounded-xl border border-dark-text/10">
+    <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+      Categories
+    </h2>
+    <div class="space-y-2">
+      <a href="/blogs" class="block px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors">
+        All Posts ({posts.length})
+      </a>
+      {categories.map(({ original, count }) => (
+        <a
+          href={`/blogs/category/${original.toLowerCase()}`}
+          class={`block px-4 py-2 rounded-lg transition-colors ${
+            currentCategory?.toLowerCase() === original.toLowerCase()
+              ? 'bg-primary/10 text-primary'
+              : 'hover:bg-primary/10'
+          }`}
+        >
+          {original.charAt(0).toUpperCase() + original.slice(1)} ({count})
+        </a>
+      ))}
+    </div>
+  </div>
+</aside>

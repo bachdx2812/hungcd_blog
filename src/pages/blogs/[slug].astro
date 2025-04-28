@@ -31,7 +31,7 @@ const { post, Content } = Astro.props
             {new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </span>
           <span class="px-2 py-1 text-xs md:text-sm rounded-full bg-primary/10 text-primary font-semibold">
-            {post.data.category}
+            {post.data.category.charAt(0).toUpperCase() + post.data.category.slice(1) }
           </span>
         </div>
         <h1 class="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
