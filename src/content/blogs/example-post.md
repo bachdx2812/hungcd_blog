@@ -6,7 +6,7 @@ author: "Cao Duy Hung"
 category: "Tutorial"
 tags: ["beginners", "processing", "p5.js", "medical visualization"]
 image:
-    url: "/images/default.png"
+    url: "/images/default.webp"
     alt: "Colorful code editor with medical visualization examples"
     credit: "Midjourney generated artwork"
     width: 1200

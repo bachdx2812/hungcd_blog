@@ -7,7 +7,7 @@ author: "Cao Duy Hung"
 category: "Digital Art"
 tags: ["art history", "technology", "creative AI", "generative art"]
 image:
-    url: "/images/default.png"
+    url: "/images/default.webp"
     alt: "Abstract digital art showing transition from pixels to neural networks"
     credit: "AI-generated artwork using Stable Diffusion"
     width: 1600
