@@ -1,13 +1,17 @@
 ---
 title: "The Evolution of Digital Art in the Modern Era"
-pubDate: 2024-01-20
-description: "Exploring how digital tools have transformed artistic expression"
-author: "Your Name"
-category: "art"
+pubDate: 2024-03-15
+updatedDate: 2024-05-20
+description: "Exploring the transformation of artistic expression through digital tools and AI-generated art"
+author: "Cao Duy Hung"
+category: "Digital Art"
+tags: ["art history", "technology", "creative AI", "generative art"]
 image:
     url: "/images/default.png"
-    alt: "Digital art creation process"
-tags: ["art", "digital", "technology"]
+    alt: "Abstract digital art showing transition from pixels to neural networks"
+    credit: "AI-generated artwork using Stable Diffusion"
+    width: 1600
+    height: 900
 ---
 
 

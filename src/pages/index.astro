@@ -3,7 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.vue';
 ---
 
-<Layout title="Cao Duy Hung - Personal Blog">
+<Layout
+  title="Cao Duy Hung - Personal Blog"
+  socialMeta={{
+    type: 'website',
+    title: 'Cao Duy Hung - Medical Student & Blogger',
+    description: 'Personal blog by Cao Duy Hung sharing insights about medicine, art, literature, and healthcare',
+    image: new URL('/images/social-preview.png', Astro.url.origin).href,
+    url: Astro.url.href
+  }}
+>
   <Header client:load />
   <main class="container mx-auto px-4 pt-16 md:pt-24">
     <div class="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center py-8 md:py-0">
