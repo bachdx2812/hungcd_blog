@@ -1,25 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.vue';
+import categories from '../data/categories.json';
 ---
 
-<Layout title="Your Name - Personal Blog">
+<Layout title="Cao Duy Hung - Personal Blog">
   <Header client:load />
   <main class="container mx-auto px-4 pt-24">
     <div class="min-h-screen flex flex-col items-center justify-center text-center">
-      <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
-        Welcome to My Blog
-      </h1>
-      <p class="text-xl max-w-2xl mb-8">
-        Hi, I'm [Your Name]. I'm a [Your Role] passionate about [Your Interests].
-        This is my personal space where I share my thoughts and experiences.
-      </p>
-      <a
-        href="/blogs"
-        class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-colors"
-      >
-        Read My Blog
-      </a>
+      <div class="animate-fade-in">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text leading-tight">
+          Medicine, Art, and<br />Everything iniBetween
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mb-8 md:mb-12 text-dark-text/80 leading-relaxed px-4">
+          Hi, I'm Cao Duy Hung, a General Practitioner student at the University of Medicine and Pharmacy, Vietnam National University. Here, I share my thoughts on medicine, art, literature, and the fascinating intersections between science and creativity.
+        </p>
+
+        <div class="flex flex-wrap gap-3 md:gap-4 justify-center mb-8 md:mb-12 px-4">
+          {categories.categories.map((category) => (
+            <a
+              href={`/blogs?category=${category.id}`}
+              class="px-4 md:px-6 py-2 md:py-3 rounded-full bg-dark-card hover:bg-primary/10 transition-all duration-300 text-dark-text/90 hover:text-primary text-sm md:text-base"
+            >
+              {category.name}
+            </a>
+          ))}
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
+          <a
+            href="/blogs"
+            class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-center"
+          >
+            Read My Blog
+          </a>
+          <a
+            href="/contact"
+            class="w-full sm:w-auto bg-dark-card hover:bg-dark-card/80 text-dark-text px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-center"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,14 +1,24 @@
 {
   "categories": [
     {
-      "id": "tech",
-      "name": "Technology",
-      "description": "Articles about programming and technology"
+      "id": "art",
+      "name": "Art",
+      "description": "Articles about visual arts, design, and creative expression"
     },
     {
-      "id": "lifestyle",
-      "name": "Lifestyle",
-      "description": "Personal experiences and lifestyle topics"
+      "id": "fiction",
+      "name": "Fiction",
+      "description": "Short stories, creative writing, and fictional narratives"
+    },
+    {
+      "id": "book-reviews",
+      "name": "Book Reviews",
+      "description": "Reviews and analyses of various books and literature"
+    },
+    {
+      "id": "medicine",
+      "name": "Medicine",
+      "description": "Articles about health, medical science, and healthcare"
     }
   ]
 }

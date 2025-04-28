@@ -16,16 +16,16 @@ const { blog } = Astro.props;
 <Layout title={`${blog.title} - Your Name`}>
   <Header client:load />
   <main class="container mx-auto px-4 pt-24">
-    <article class="max-w-3xl mx-auto py-8">
-      <header class="mb-8">
-        <div class="flex items-center gap-4 mb-4">
+    <article class="max-w-3xl mx-auto py-6 md:py-8">
+      <header class="mb-6 md:mb-8">
+        <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
           <a href="/blogs" class="text-primary hover:text-primary/80 transition-colors">
             ← Back to Blog
           </a>
           <span class="text-dark-text/60">{blog.date}</span>
           <span class="text-primary">{blog.category}</span>
         </div>
-        <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
           {blog.title}
         </h1>
       </header>
