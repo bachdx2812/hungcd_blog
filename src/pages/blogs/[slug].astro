@@ -18,7 +18,19 @@ const { slug } = Astro.params
 const { post, Content } = Astro.props
 ---
 
-<Layout title={`${post.data.title} - Your Name`}>
+<Layout
+  title={`${post.data.title} - ${post.data.author}`}
+  socialMeta={{
+    type: 'article',
+    title: post.data.title,
+    description: post.data.description,
+    image: new URL(post.data.image?.url || '/images/blog-default.webp', import.meta.env.SITE).href,
+    url: Astro.url.href,
+    imageAlt: post.data.image?.alt || 'Blog post cover image',
+    publishedTime: post.data.pubDate.toISOString(),
+    tags: post.data.tags
+  }}
+>
   <Header client:load />
   <main class="container mx-auto px-4 pt-24">
     <article class="max-w-3xl mx-auto py-6 md:py-8">
