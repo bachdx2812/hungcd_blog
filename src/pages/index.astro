@@ -6,37 +6,37 @@ import categories from '../data/categories.json';
 
 <Layout title="Cao Duy Hung - Personal Blog">
   <Header client:load />
-  <main class="container mx-auto px-4 pt-24">
-    <div class="min-h-screen flex flex-col items-center justify-center text-center">
-      <div class="animate-fade-in">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text leading-tight">
-          Medicine, Art, and<br />Everything iniBetween
+  <main class="container mx-auto px-4 pt-16 md:pt-24">
+    <div class="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center py-8 md:py-0">
+      <div class="animate-fade-in max-w-screen-lg mx-auto px-4">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text leading-tight">
+          Medicine, Art, and<br class="hidden sm:block" /> Everything in Between
         </h1>
-        <p class="text-lg md:text-xl max-w-2xl mb-8 md:mb-12 text-dark-text/80 leading-relaxed px-4">
+        <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-12 text-dark-text/80 leading-relaxed">
           Hi, I'm Cao Duy Hung, a General Practitioner student at the University of Medicine and Pharmacy, Vietnam National University. Here, I share my thoughts on medicine, art, literature, and the fascinating intersections between science and creativity.
         </p>
 
-        <div class="flex flex-wrap gap-3 md:gap-4 justify-center mb-8 md:mb-12 px-4">
+        <div class="flex flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center mb-6 sm:mb-8 md:mb-12">
           {categories.categories.map((category) => (
             <a
               href={`/blogs?category=${category.id}`}
-              class="px-4 md:px-6 py-2 md:py-3 rounded-full bg-dark-card hover:bg-primary/10 transition-all duration-300 text-dark-text/90 hover:text-primary text-sm md:text-base"
+              class="px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-full bg-dark-card hover:bg-primary/10 transition-all duration-300 text-dark-text/90 hover:text-primary text-xs sm:text-sm md:text-base"
             >
               {category.name}
             </a>
           ))}
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <a
             href="/blogs"
-            class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-center"
+            class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-sm sm:text-base text-center"
           >
             Read My Blog
           </a>
           <a
             href="/contact"
-            class="w-full sm:w-auto bg-dark-card hover:bg-dark-card/80 text-dark-text px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-center"
+            class="w-full sm:w-auto bg-dark-card hover:bg-dark-card/80 text-dark-text px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-sm sm:text-base text-center"
           >
             Get in Touch
           </a>
